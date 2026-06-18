@@ -47,11 +47,6 @@ print("Logistic Regression Accuracy: ", lr_accuracy)
 
 print(classification_report(y_test, lr_pred))
 
-cm_logistic_regression = confusion_matrix(y_test, lr_pred)
-sns.heatmap(cm_logistic_regression, annot=True, fmt='d')
-plt.title("Logistic Regression Confusion matrix")
-plt.show()
-
 
 decision_tree_model = DecisionTreeClassifier(random_state=42)
 decision_tree_model.fit(X_train, y_train)
@@ -61,11 +56,6 @@ decision_tree_accuracy = accuracy_score(y_test, decision_tree_pred)
 print("Descision tree accuracy: ", decision_tree_accuracy)
 print(classification_report(y_test, decision_tree_pred))
 
-cm_decision_tree = confusion_matrix(y_test, decision_tree_pred)
-
-sns.heatmap(cm_decision_tree, annot=True, fmt='d')
-plt.title("Decision Tree Confusion Matrix")
-plt.show()
 
 results = pd.DataFrame({
     'Model': ['Logistic Regression', 'Decision Tree'],
