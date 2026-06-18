@@ -29,3 +29,10 @@ plt.show()
 
 sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
 plt.show()
+
+X = df.drop('species', axis=1)
+y = df['species']
+
+scaler = StandardScaler()
+scaler.fit(X)
+X_scaled = scaler.transform(X)
