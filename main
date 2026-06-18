@@ -69,3 +69,10 @@ cm_decision_tree = confusion_matrix(y_test, decision_tree_pred)
 sns.heatmap(cm_decision_tree, annot=True, fmt='d')
 plt.title("Decision Tree Confusion Matrix")
 plt.show()
+
+results = pd.DataFrame({
+    'Model': ['Logistic Regression', 'Decision Tree'],
+    'Accuracy': [lr_accuracy, decision_tree_accuracy]
+})
+
+print(results)
