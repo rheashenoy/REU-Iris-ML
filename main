@@ -39,3 +39,18 @@ X_scaled = scaler.transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(
     X_scaled, y, test_size=.2, random_state=42, stratify=y)
+
+
+lr_model = LogisticRegression(max_iter=200)
+lr_model.fit(X_train, y_train)
+lr_pred = lr_model.predict(X_test)
+
+lr_accuracy = accuracy_score(y_test, lr_pred)
+print("Accuracy: ", lr_accuracy)
+
+print(classification_report(y_test, lr_pred))
+
+cm = confusion_matrix(y_test, lr_pred)
+sns.heatmap(cm, annot=True, fmt='d')
+plt.title("Logistic Regression Confusion matrix")
+plt.show()
