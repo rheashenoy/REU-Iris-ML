@@ -27,9 +27,6 @@ print(df['species'].value_counts())
 sns.pairplot(df, hue='species')
 plt.show()
 
-sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
-plt.show()
-
 X = df.drop('species', axis=1)
 y = df['species']
 
